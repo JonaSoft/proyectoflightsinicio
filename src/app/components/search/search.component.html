@@ -1,0 +1,144 @@
+<div class="fondomain">
+  <div class="row container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12 col d-flex justify-content-center">
+     <div class="col-lg-3 col-sm-12  col d-flex justify-content-center">
+        <div class="">
+
+            <div class="col ">
+                <div class="container-fluid col  d-flex align-items-center justify-content-center">
+                    <form  name="formbuscar" style="background:#0B173B;width:310px;height:auto;font-size:14px;font-family:tahoma;color:white;padding:10px 10px 10px 10px;border:3px outset white;border-radius:15px 15px 15px 15px;margin-top:35%;">
+                       <h5><p>Search Code Share</p></h5>
+                       <p><label for="mcar">Market Airline :  </label>
+                       <input type="text" id="mcar" size="8" maxlength="2" style="background:#F3F781;text-transform:uppercase;" #buscarmcar/></p>
+                       <p><label for="flight" style="margin-left:0px;">Flight Number Marketing: </label> <input type="text" id="flight" size="8" maxlength="4" onkeypress="return solonumero(event)" style="background:#F3F781;"/></p>
+
+                          <p><label for="ocar">Operational By : </label><input type="text" id="ocar" size="6" maxlength="2" style="background:#F3F781;text-transform:uppercase;"/></p>
+                          <label> Day Frequency : </label>
+                           <br>
+                          <div class="container">
+                             <p style="font-family:cursive;font-size:13px;align-items: center;border: 5px solid;border-radius:5px 5px 5px 5px;border-color:#848484;border:3px outset white;margin-left:3px; ">
+                                <input type="checkbox" name="su" style="margin:8px;">Sun
+                                <input type="checkbox" name="mo" style="margin:8px;">Mon
+                                <input type="checkbox" name="th" style="margin:8px;">Thu
+                                <input type="checkbox" name="we" style="margin:8px;">Wed
+                                <input type="checkbox" name="th" style="margin:8px;">Thr
+                                <input type="checkbox" name="fr" style="margin:8px;">Fri
+                                <input type="checkbox" name="sa" style="margin:8px;">Sat
+                                <br>
+                             </p>
+                          </div>
+                          <label for="flightnumberoperator">Flight Number Operator :</label>
+                          <input type="text" id="flightnumberoperator" size="8" maxlength="4" onkeypress="return solonumero(event)" style="background:#F3F781;"/><br>
+                          <label for="origen">Origen : </label>
+                          <input type="text" id="origen" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;"/>
+                          <label for="destino"> Destino : </label>
+                          <input type="text" id="destino" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin-left:10px;"/><br>
+                          <input type="checkbox" id="checkcalendario" onclick="activarcalendario()"><label style= "margin-left:5px;"> Date Selection List :</label><br>
+                          <div style="border: 5px solid;border-radius:5px 5px 5px 5px;border-color:#848484;border:3px outset white;margin-left:0px; padding:10px;">
+                             <div class="container">
+                                  <form class="form-group">
+                                     <select class="form-control" id="selecciona" style="background:#F3F781;color:black;width:auto;height:auto;font-family:tahoma;
+                                      font-size:14px;">
+                                        <option>Flight Date Created :</option>
+                                        <option>Flight Date From :</option>
+                                        <option>Flight Date To :</option>
+                                     </select>
+                                  </form>
+                                  <input type="date" id="fechavuelo" style="background:#F3F781;border-radius:5px 5px 5px 5px;"/>
+                             </div>
+                          </div>
+                           <form>
+                             <br>
+                             <button  (click)="buscavuelo(buscarmcar.value)"
+                                type="button" class="btn btn-success btn-lg"  style="margin:auto;width:100%;">View / Hide Flight
+                                <!--onclick="getFlight()"-->
+                             </button>
+                          </form>
+                    </form>
+              </div>
+            </div>
+        </div>
+     </div>
+     <div class="col-lg-9 col-sm-12  align-items-center animated  fadein fast">
+           <div *ngIf="mostrar" class=" container-fluid col-sm-12  align-items-center " style="" >
+              <div class="container"style="">
+              </div>
+              <div id="padre" class="container  col-sm-12 col d-flex justify-content-center  align-items-center d-flex flex-wrap  animated fast fadein"
+                   style="margin-top:20px;margin-bottom:20px;position:relative;height:auto;min-height:750px;">
+                 <div *ngIf="aviso" class="row  animated fadeIn fast">
+                    <div class="col-md-12">
+
+                       <div class="container col  d-flex align-items-center justify-content-center alert alert-info" role="alert" style="width:90%;height:100px;margin:auto;">
+                         <img src="assets/img/aviso.jpg" alt="" width="90"height="90"style="opacity:0.30;padding:2px;border-radius:50px 50px 50px 50px;">
+                         <h5>There are no results for this search for <strong>" {{buscarmcar.value | uppercase}} "</strong></h5>
+                       </div>
+
+                    </div>
+
+                 </div>
+
+                 <div  id="padre1" class="card animated fast fadein"  *ngFor="let flights of this.flightArr; let i=index" style="width: 12rem;">
+
+                      <div class="container" style="padding-top:2px;padding-bottom:1px;">
+                          <img *ngIf="flights.market == 'KL'" class="card-img-top" src="assets/img/klm.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'AF'" class="card-img-top" src="assets/img/airfrance.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'AM'" class="card-img-top" src="assets/img/aeromexico.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'JJ'" class="card-img-top" src="assets/img/tam.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'LA'" class="card-img-top" src="assets/img/lan.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'H2'" class="card-img-top" src="assets/img/sky.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'MF'" class="card-img-top" src="assets/img/mf.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'QF'" class="card-img-top" src="assets/img/qf.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                          <img *ngIf="flights.market == 'AA'" class="card-img-top" src="assets/img/aa.jpg" width="100%" height="80" alt={{flights.cliente}}>
+                      </div>
+                      <div class="card-block  animated fast fadein" style="padding-top:0px;">
+                        <h5 class="card-title text-center">{{flights.market}} {{flights.flightini}}</h5>
+                          <div class=" container alert alert-danger" role="alert" style="width:auto;height:250px;">
+                            <p class="card-text" style="color:dark;">
+                             Ruta: {{flights.origen}} {{flights.destino}}<br>
+                             Operador: {{ flights.codope }}<br>
+                             Flight Number Operator: {{ flights.flightope }}<br>
+                             Time Departure: {{ flights.timedep }}<br>
+                             Time Arrived: {{ flights.timearr }}</p>
+                        </div>
+                       <p class="card-text"style="font-size:14px;">Saved: {{flights.fechareg}}</p>
+                       <button (click)= "seeFlight(i)"
+                          type="button" class="regresar btn btn-primary btn-block">
+                          See more...
+                       </button>
+                       <!--<a [routerLink]="['/flight',i]" class="regresar btn btn-outline-primary btn btn-block">See more...</a>-->
+                      </div>
+                 </div>
+                 <div  id="hijo"   *ngIf="mostrarv" ngFor="let flight of this.flightArr; let i=index" id="visor"
+                       class="container-fluid  col-sm-12 align-items-center animated fast fadeIn"
+                       style="height:auto;width:30%;background:#6E6E6E;color:white;padding:0px;position:fixed;
+                              top:-20%;left:20%;bottom:0;right:0;margin: auto;border:2px outset white;z-index:1;">
+                      <div class="row container ">
+                         <br>
+                         <div class="container-fluid col-sm-12"style=" padding-top:20px;">
+                            <h5><p>{{ cliente }}</p></h5>
+                            <div class="container col">
+                               <strong>MARKET: </strong> {{ market }}<br>
+                               <strong>NUMBER: </strong> {{ flightini }}<br>
+                               <strong>ORIGIN: </strong> {{ origen }}<br>
+                               <strong>DESTINATION: </strong> {{ destino }}<br>
+                               <strong>OPERATOR: </strong> {{ codope }}<br>
+                               <strong>FRECUENCY: </strong> {{ frecuencia }}<br>
+                               <strong>CLASS: </strong><small> {{ clase }}</small><br>
+                               <strong>COMMENTARY: </strong><small>{{ comentario }}</small><br>
+                               <strong>TIME DEPARTURE: </strong> {{ timedep }}<br>
+                               <strong>TIME ARRIVED: </strong> {{ timearr }}<br>
+                            </div>
+                         </div>
+                          <br>
+                           <div class="container-fluid">
+                                <button (click)= "activar()"
+                                   type="button" class="regresar btn btn-success btn-block" style="font-size:18px;font-family:cursive;">
+                                   Close
+                                </button>
+                           </div>
+                       </div>
+                </div>
+              </div>
+           </div>
+     </div>
+  </div>
+</div>
