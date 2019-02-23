@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService, Dato } from '../../servicios/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
    flightArr : Dato[] ;
    mostrar = false;
    mostrarv = false;
-   tarjetas= false;
+   tarjetas= true;
    aviso = false;
    cadena;cliente;market;flightini;origen;destino;codope;frecuencia;clase : string;
    comentario;timedep;timearr :string;
@@ -22,16 +23,27 @@ export class SearchComponent implements OnInit {
    dia;mes;anio:string;
    acum:number;
 
-  constructor( private _dataService:DataService,
-               private activateRoute: ActivatedRoute,
-               private _router: Router) {
+  constructor( //private _dataService:DataService,
+               //private activateRoute: ActivatedRoute,
+               private _router: Router,
+               private http: HttpClient) {
+            console.log('Constructor de llamado listo');
+            //this.http.get('https://restcountries.eu/rest/v2/lang/es')
+               this.http.get('../assets/datajson.json')
+                     .subscribe((datajson:any) =>{
+                        //console.log(datajson);
 
+                        //console.log(datajson[1])
+                        this.datos=datajson
+                        //console.log(datajson)
+                        console.log(this.datos)
 
+                     })
 
   }
 
   ngOnInit() {
-      this.datos = this._dataService.getdata();
+      //this.datos = this._dataService.getdata();
       this.flightArr = [];
       //console.log('Hola1');
       //console.log(this.datos['cliente']);
@@ -118,29 +130,38 @@ export class SearchComponent implements OnInit {
    vertodo(){
       this.mostrarv= true;
    }
-   buscavuelo(termino:string){
-      this.flightArr=[ ] ;
+   buscavuelo(termino:string, termino1:string){
+     this.flightArr=[ ] ;
       termino=termino.toUpperCase();
-      console.log('9')
-      console.log(termino);
-      this.acum = (termino.length);
-      console.log(this.acum);
-      console.log('91')
-      //console.log(this.datos);
-      //console.log(flightArr);
+      termino1=termino1.toUpperCase();
+
+      console.log(this.datos);
+      //console.log(this.flightArr);
       for ( let mcar of this.datos){
-         //let vuelo = mcar.market.trim();
+         //console.log(mcar.market.trim());
+        //console.log(termino)
          if(mcar.market.trim() == termino ){
+            if(mcar.codope.trim() == termino1 ){
+              // console.log( mcar.market.trim());
+               //console.log( mcar.codope.trim());
+               this.flightArr.push(mcar);
+            }else{
+               if(termino1 == ""){
+                   this.flightArr.push(mcar);
+
+               }
+            }
             //console.log(vuelo.indexOf( termino ))
-            console.log( mcar.market.trim());
-            this.flightArr.push(mcar);
+            //console.log( mcar.market.trim());
+            //this.flightArr.push(mcar);
             //console.log(this.flightArr.length);
-             console.log('es mayor que cero');
+            //console.log('es mayor que cero');
              this.aviso=false;
+             this.mostrar=true
 
          }else{
 
-               this.mostrar=true;
+               this.mostrar=false;
                //this.mostrar= !this.mostrar;
                this.aviso = true;
                //console.log(this.acum);
@@ -152,16 +173,67 @@ export class SearchComponent implements OnInit {
       }
        //console.log(this.flightArr);
       if (this.flightArr.length==0){
-               //this.mostrar=true;
+              this.mostrar=false;
                this.aviso = true
       }else{
-               //this.mostrar=true;
+               this.mostrar=true;
                this.aviso=false
       }
 
       return this.flightArr
 
 
+   }
+   abrirfile(i){
+        this.dia = this.datos[i].fechainit.substring(0,2)
+        this.mes = this.datos[i].fechainit.substring(3,5);
+        this.anio = this.datos[i].fechainit.substring(6,10);
+        switch (this.mes) {
+           case "01":
+              this.mes="JAN";
+              break;
+           case "02":
+              this.mes="FEB";
+              break;
+           case "03":
+              this.mes="MAR";
+              break;
+           case "04":
+              this.mes="APR";
+              break;
+           case "05":
+              this.mes="MAY";
+              break;
+           case "06":
+              this.mes="JUN";
+              break;
+           case "07":
+              this.mes="JUL";
+              break;
+           case "08":
+              this.mes="AUG";
+              break;
+           case "09":
+              this.mes="SEP";
+              break;
+           case "10":
+              this.mes="OCT";
+              break;
+           case "11":
+              this.mes="NOV";
+              break;
+           case "12":
+              this.mes="DEC";
+              break;
+           default:
+        }
+         this.cadena=(this.datos[i].market+this.datos[i].flightini+this.dia+this.mes+this.anio+`.txt`);
+         console.log(this.datos[i].market + this.datos[i].flightini);
+         console.log(this.cadena)
+         window.open("../assets/2019/"+this.cadena+"","nuevo",
+         "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=900, height=500");
+        //window.open("https://drive.google.com/file/d/1suf2lIzpOsWU-vG5envzbb-lkm8q-DXE/view?usp=sharing",
+         //"directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=900, height=500");
    }
 
 }

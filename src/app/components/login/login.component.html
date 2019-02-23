@@ -1,3 +1,58 @@
-<p>
-  login works!
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <!--Importar la fuente de los íconos de Google-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Importar la hojas de estilos de materialize css
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/customColors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/app.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Inicia Sesión</title>
+</head>
+<body class="grey darken-4 fondo">
+  <div class="container" style="padding-top:15%;">
+    <div class="col-s12 logo-text  light-green-text">
+      <h2 > Portal Code Share </h2>
+      <span class="sub-logo">Web para encontrar vuelos de la Industria</span>
+    </div>
+    <div class="login-container">
+
+      <div class="card login-card">
+
+        <div class="card-content">
+         <!-- action="javascript:;" method="post"-->
+          <form id="login-form">
+            <div class="input-field">
+              <input placeholder="Usuario" id="user" type="text" class="validate">
+            </div>
+            <div class="input-field">
+              <input placeholder="Contraseña" id="password" type="password" class="validate">
+            </div>
+            <!--<div class="forget-container">
+              <a href="#" class="forget-psw">¿Olvidaste la contraseña?</a>
+            </div>-->
+            <div class="input-field btn-container">
+               <button
+                  type="submit" name="submit" id="login" class="btn light-green accent-4 waves-effect">Inicia Sesión</button>
+               <button type="submit" name="submit" id="registro" class="btn orange accent-4">Registrate</button>
+
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--<script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,146 +1,37 @@
 body{
-    width: auto;
-   }
-   .slider{
-     background-size:cover;
-     background-position: center;
-     background-color:#0B3861;
-     width: 100%;
-   
-   }
-   .columna{
-     border:1px #313030 solid;
-   }
-   .medida{
-     height: 150px;
-     width: 250px;
-     margin-top: 5px;
-   }
-   
-   .fondomain{
-     background: url("src/assets/img/avion5.jpg");
-     background-size:cover;
-     height: 980px;
-     width: 100%;
-     /*opacity: 0.85;*/
-     }
-   p{
-     font-size:0.9rem;
-   }
-   h5{
-      text-align: center;
-   }
-   
-   .caja{
-      background-color: #F7BE81;
-      opacity:0.5;
-      position:relative;
-   
-      margin: auto;
-   }
-   #flecha>img{
-      /*display: none;*/
-   
-   }
-   #start{
-     /*margin-left: 5px;*/
-      font-family: cursive;
-      font-size: 18px;
-      height: 35px;
-      width:70px;
-      margin-left: 35px;
-   }
-   .sinborde{
-   border: none;
-   border-style: none;
-   }
-   .nuevo{
-     width: 90px;
-     background-color:#6E6E6E;
-     opacity: 0.1;
-     color: red;
-     height: 45px;
-   
-   }
-   .salida{
-      border: 1px solid black;
-      width: 650px;
-      height: 420px;
-      font-family: Arial;
-      font-size: 14px;
-      color: green;
-      /*background-color: rgba(255, 0, 0, 0.5);*/
-      background: #161616;
-   }
-   
-   .fondosearch{
-      font-family: tahoma;
-   }
-   .estilosponsor{
-      /*cursor: pointer;*/
-      width: 800px;
-      height: auto;
-      /*min-height:450px;*/
-      font-size: 14px;
-      padding: 10px
-   }
-   .estilovisor{
-      /*cursor: pointer;*/
-      width:1200px;
-      min-height: 80px;
-      max-height:200px;
-      font-size: 16px;
-      margin-top: 20px;
-      padding: 10px
-   }
-   .estilologo{
-      /*cursor: pointer;
-      margin:auto;*/
-      /*margin-top: -5%;*/
-      font-size: 2.5em;
-      font-family: cursive;
-      color: #FE2E2E;
-      text-shadow: 3px 4px 5px #585858;
-      opacity: 0.85
-   }
-   .estilovisortabla{
-      /*cursor: pointer;*/
-      min-width: 800px;
-      /*height: auto;*/
-      /*height:350px;*/
-      font-size: 16px;
-      margin-top: 50px;
-      padding: 10px
-   }
-   .estiloflecha{
-      cursor: pointer;
-      margin-top: 55%;
-      align-content: center;
-      opacity: 0.95
-   }
-   #piePagina{
-      background-color: #151515;
-      width: 100%;
-      height: 350px;
-       padding-bottom: 0px;
-        margin-bottom: 0px
-   }
-   #sponsor{
-      margin-top: 5%
-   }
-   
-   
-   .clasetextarea{
-   border:none;
-   font-size:10px;
-   vertical-align:middle;
-   background:#F3F781;
-   opacity:0.75;
-   }
-   .clasecolumna{
-   font-size:11px;
-   vertical-align:middle;
-   background:#819FF7;
-   opacity:0.75;
-   }
-   
+ width: auto;
+}
+.slider{
+  background-size:cover;
+  background-position: center;
+  background-color:#0B3861;
+  width: 100%;
+
+}
+.columna{
+  border:1px #313030 solid;
+}
+.medida{
+  height: 150px;
+  width: 250px;
+  margin-top: 5px;
+}
+
+.fondomain{
+  background: url("src/assets/img/avion5.jpg");
+   /*background-color:#F2F2F2;*/
+
+  background-size:cover;
+
+  min-height: 980px;
+  width: 100%
+
+  }
+p{
+  font-size:0.9rem;
+
+   color:black
+}
+h5{
+   text-align: center;
+}

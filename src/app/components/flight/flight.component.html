@@ -1,3 +1,51 @@
-<p>
-  flight works!
-</p>
+<div class=" fondomain">
+
+
+      <div class="container">
+
+
+         <div class="col-md-12">
+            <div class="container" style="height:120px;">
+
+            </div>
+            <div class="container-fluid fondoflight">
+                  <br><br>
+                   <h3>{{ flight.cliente }}</h3>
+                   <hr>
+                  <strong>Market: </strong> {{ flight.market }}<br>
+                  <strong>Origen: </strong> {{ flight.init }}<br>
+                  <strong>Origen: </strong> {{ flight.origen }}<br>
+                  <strong>Destino: </strong> {{ flight.destino }}<br>
+                  <strong>Operador: </strong> {{ flight.codope }}<br>
+                  <strong>Frecuencia: </strong> {{ flight.frecuencia }}<br>
+                  <strong>Clase: </strong> {{ flight.clase }}<br>
+                  <strong>Comentario: </strong>{{ flight.comentario }}<br>
+                  <strong>Time Departure: </strong> {{ flight.timedep }}<br>
+                  <strong>Time Arrived: </strong> {{ flight.timearr }}<br>
+                  <strong>Cadena: </strong>{{ cadena }}
+                  <!--<a  target="_blank" onclick="MM_openBrWindow('`+{{flight.market}}+{{flight.init}}`','','width=850,height=700')" ></a>
+                  -->
+            </div>
+         </div>
+      </div>
+         <div class="container">
+            <div class="row">
+                  <div class="col-md-4">
+
+                  </div>
+                  <div class="col-md-4">
+
+                  </div>
+                  <div class="col-md-4">
+                      <div class="container">
+                           <img [src]="" class="img-fluid" [alt]="">
+                           <br><br>
+                           <a [routerLink]="['/search']" class="btn btn-danger btn-block regresar">Come Back...</a>
+                      </div>
+                  </div>
+            </div>
+         </div>
+
+
+
+</div>
