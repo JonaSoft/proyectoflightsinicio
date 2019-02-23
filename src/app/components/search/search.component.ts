@@ -184,6 +184,9 @@ export class SearchComponent implements OnInit {
 
 
    }
+    ocultar(){
+        this.mostrar=false
+    }
    abrirfile(i){
         this.dia = this.datos[i].fechainit.substring(0,2)
         this.mes = this.datos[i].fechainit.substring(3,5);

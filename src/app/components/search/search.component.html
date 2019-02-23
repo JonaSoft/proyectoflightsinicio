@@ -21,8 +21,13 @@
                            <input type="text" id="origen" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;"/>
                            <label for="destino"> Destination : </label>
                            <input type="text" id="destino" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;"/>
+                           
                            <button  (click)="buscavuelo(buscarmcar.value,buscarocar.value)"
-                           type="button" class="btn btn-success"   style="margin:auto;">View Flight
+                           type="button" class="btn btn-success"   style="margin:auto;">View 
+                           <!--onclick="getFlight()"-->
+                           </button>        
+                           <button (click)="ocultar()"
+                           type="button" class="btn btn-danger"   style="margin:auto;">Hide 
                            <!--onclick="getFlight()"-->
                            </button>        
                            </p>  
@@ -33,12 +38,12 @@
       <div class="row">
       <div  class="container col-sm-12  align-items-center animated  fadein fast" style="">
          <div class="container-fluid col d-flex justify-content-center" style="margin:auto;">
-            <div *ngIf="aviso" class="container"style="height:25px;">
+            <div *ngIf="aviso" class="container-fluid d-flex justify-content-center"style="height:25px;">
                   <div  class="row animated fadeIn fast">
                     <div class="container-fluid d-flex justify-content-center" style="width:100%;height:250px;">
 
                     </div>
-                    <div class="col-md-12">
+                    <div class="container-fluid col d-flex justify-content-center ">
                       <div class="alert alert-info" role="alert" style="height:100px;opacity:0.85;">
                         <p> <img src="./assets/img/aviso.jpg" alt="" style="opacity:0.35;width:100px;height:80px;">  There are no results for these search terms</p>
                       </div>
@@ -89,8 +94,9 @@
                      </tr>
 
                   </tbody>
+               
               </table>
-               <br>
+               
 
             </div>
          </div>
