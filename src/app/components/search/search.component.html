@@ -23,12 +23,11 @@
                            <input type="text" id="destino" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;"/>
                            
                            <button  (click)="buscavuelo(buscarmcar.value,buscarocar.value)"
-                           type="button" class="btn btn-success"   style="margin:auto;">View 
+                           type="button" class="btn btn-success "   style="margin:auto;">View 
                            <!--onclick="getFlight()"-->
                            </button>        
                            <button (click)="ocultar()"
-                           type="button" class="btn btn-danger"   style="margin:auto;">Hide 
-                           <!--onclick="getFlight()"-->
+                            type="button" class="btn btn-danger "   style="margin-left:10px;">Hide 
                            </button>        
                            </p>  
                       </form>
@@ -51,7 +50,7 @@
                   </div>
             </div>
 
-            <div *ngIf="mostrar" class="table-responsive" style="padding:2px;height:auto;max-height:750px;width:100%;margin:2px auto;">
+            <div *ngIf="mostrar" class="table-responsive" style="padding:2px;height:auto;max-height:800px;width:100%;margin:2px auto;">
                <table class="table table-hover"  style="background:white;opacity:0.85;position:relative;" >
                    <thead class="" style="background:rgba(14, 10, 49, 0.945); color:white;z-index:1;padding:0px;font-size:10px;">
 
