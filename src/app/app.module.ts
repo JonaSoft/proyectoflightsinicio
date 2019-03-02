@@ -16,6 +16,10 @@ import { APP_ROUTING } from './app.routes';
 import {DataService} from './servicios/data.service';
 import {AuthService} from './servicios/auth.service';
 
+//Guards
+
+import { AuthGuard} from './guards/auth.guard'
+
 //componentes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -53,7 +57,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
   ],
   providers: [
    DataService,
-   AuthService
+   AuthService,
+   AuthGuard
   ],
 
   bootstrap: [AppComponent]

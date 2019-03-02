@@ -121,6 +121,9 @@ input[type="radio"] + label{
 }
 .forget-psw{
   color: red;
+  font-size:1.0em;
+  font-family:cursive;
+  font-weight: 900
 }
 .login-container{
   display: flex;
