@@ -106,7 +106,8 @@ input[type="radio"] + label{
 }
 .logo-text{
   font-family: 'Orbitron', sans-serif;
-  color: #fff;
+  color: #FFBF00;
+   font-weight: 1000;
   text-align: center;
   margin-top: 13rem;
 }
@@ -114,21 +115,26 @@ input[type="radio"] + label{
   font-size: 6rem;
 }
 .sub-logo{
-  font-size: 2rem;
+  font-size: 1.5em;
   font-family: 'Roboto Condensed', sans-serif;
-  color: #fff;
+  color: #E6E6E6;
 }
 .forget-psw{
-  color: #ff6d00;
+  color: red;
 }
 .login-container{
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
   width: 100%;
+  margin:auto
 }
 .login-card{
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width:500px;
+  min-width:60px;
+  margin:auto
 }
 .forget-container{
   display: flex;

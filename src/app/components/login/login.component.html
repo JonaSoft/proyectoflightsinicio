@@ -13,31 +13,36 @@
   <title>Inicia Sesión</title>
 </head>
 <body class="grey darken-4 fondo">
-  <div class="container" style="padding-top:15%;">
-    <div class="col-s12 logo-text  light-green-text">
-      <h2 > Portal Code Share </h2>
-      <span class="sub-logo">Web para encontrar vuelos de la Industria</span>
+  <div class="container col-s12" style="padding-top:15%;">
+    <div class="logo-text  light-green-text">
+      <h3 class="logo-text" > Portal Code Share </h3>
+      
     </div>
-    <div class="login-container">
+    <div class="container">
 
-      <div class="card login-card">
+      <div class="login-container card login-card" >
 
         <div class="card-content">
          <!-- action="javascript:;" method="post"-->
-          <form id="login-form">
+          <form id="login-form" (submit)="login()">
+            <!--(submit)="login()">-->
             <div class="input-field">
-              <input placeholder="Usuario" id="user" type="text" class="validate">
+              <input placeholder="User" id="email" type="email" name="email" [(ngModel)]="email" class="validate">
             </div>
             <div class="input-field">
-              <input placeholder="Contraseña" id="password" type="password" class="validate">
+              <input placeholder="PassWord" id="password" type="password" name="password" [(ngModel)]="password" class="validate">
             </div>
-            <!--<div class="forget-container">
-              <a href="#" class="forget-psw">¿Olvidaste la contraseña?</a>
-            </div>-->
+            <div *ngIf='alerta' class="forget-container">
+              <a href="#" class="forget-psw">Warning...!!!</a><hr>
+               <p  class="forget-psw"> Without credentials or authorization</p>
+            </div>
             <div class="input-field btn-container">
                <button
-                  type="submit" name="submit" id="login" class="btn light-green accent-4 waves-effect">Inicia Sesión</button>
-               <button type="submit" name="submit" id="registro" class="btn orange accent-4">Registrate</button>
+                  type="submit" name="submit" id="login" class="btn green  ">Sign In
+               </button>
+               <!--<button
+               type="submit" name="submit" id="registro" class="btn orange accent-4">Check In
+               </button>-->
 
             </div>
           </form>

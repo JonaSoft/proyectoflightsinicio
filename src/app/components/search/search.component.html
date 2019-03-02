@@ -1,35 +1,35 @@
 <app-navbar></app-navbar>
 <div class="fondomain container-fluid">
    <!--<div class="container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12 col d-flex justify-content-center">-->
-      <div class="row" style="margin:auto;">
+      <div class="row " style="margin:auto;">
          <div id="padre" class="col-sm-12 "style="">
-            <div id="hijo" class="container-fluid col d-flex justify-content-center" style="height:80px;">
-                     <form  name="formbuscar" style="background:#0B173B; width:auto;height:auto;font-size:14px;font-family:tahoma;color:white;
-                        padding:10px 10px 10px 10px;border-radius:15px 15px 15px 15px;margin:5px;">
-                        
-                        <p><label for="mcar">Market Airline :  </label>
-                        <input type="text" id="mcar" size="8" maxlength="2" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;" #buscarmcar/>
-                        <label for="flight" style="">Flight Market : </label>
-                        <input type="text" id="flight" size="8" maxlength="4" onkeypress="return solonumero(event)" style="background:#F3F781;margin:10px 10px 10px;"/>
+            <div id="hijo" class="container-fluid col d-flex justify-content-center" style="height:auto;">
+                     <form  name="formbuscar" class="formbusqueda  animated  fast fadeIn ">
 
-                        <label for="ocar">Operational By : </label>
-                        <input type="text" id="ocar" size="8" maxlength="2" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;" #buscarocar/>
-                          
+                        <label for="mcar">Market Airline :  </label>
+                        <input type="text" id="mcar" size="8" maxlength="2" #buscarmcar onKeyUp="this.value=this.value.toUpperCase();"/>
+                        <label for="flight" style="">Flight Market : </label>
+                        <input type="text" id="flight" size="8" maxlength="4" onkeypress="return solonumero(event)" onKeyUp="this.value=this.value.toUpperCase();"/>
+
+                        <label for="ocar">Operator: </label>
+                        <input type="text" id="ocar" size="8" maxlength="2" #buscarocar onKeyUp="this.value=this.value.toUpperCase();"/>
+
                         <label for="flightnumberoperator">Flight Operator :</label>
-                        <input type="text" id="flightnumberoperator" size="8" maxlength="4" onkeypress="return solonumero(event)" style="background:#F3F781;margin:10px 10px 10px;"/>
+                        <input type="text" id="flightnumberoperator" size="8" maxlength="4" onkeypress="return solonumero(event)" onKeyUp="this.value=this.value.toUpperCase();" />
                            <label for="origen">Origin : </label>
-                           <input type="text" id="origen" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;"/>
+                           <input type="text" id="origen" size="4" maxlength="3"  onKeyUp="this.value=this.value.toUpperCase();"/>
                            <label for="destino"> Destination : </label>
-                           <input type="text" id="destino" size="4" maxlength="3" style="background:#F3F781;text-transform:uppercase;margin:10px 10px 10px;"/>
-                           
+                           <input type="text" id="destino" size="4" maxlength="3" onKeyUp="this.value=this.value.toUpperCase();" />
+
                            <button  (click)="buscavuelo(buscarmcar.value,buscarocar.value)"
-                           type="button" class="btn btn-success "   style="margin:auto;">View 
+                           type="button" class="btn btn-success "style="margin:auto;margin-right:10px; font-size:11px;">VIEW
                            <!--onclick="getFlight()"-->
-                           </button>        
+                           </button>
                            <button (click)="ocultar()"
-                            type="button" class="btn btn-danger "   style="margin-left:10px;">Hide 
-                           </button>        
-                           </p>  
+                            type="button" class="btn btn-danger "style="margin:auto; font-size:11px;">HIDE
+                           </button>
+
+
                       </form>
              </div>
          </div>
@@ -50,7 +50,7 @@
                   </div>
             </div>
 
-            <div *ngIf="mostrar" class="table-responsive" style="padding:2px;height:auto;max-height:800px;width:100%;margin:2px auto;">
+            <div *ngIf="mostrar" class="table-responsive" style="padding:2px;height:auto;max-height:800px;width:100%;margin:22px auto;">
                <table class="table table-hover"  style="background:white;opacity:0.85;position:relative;" >
                    <thead class="" style="background:rgba(14, 10, 49, 0.945); color:white;z-index:1;padding:0px;font-size:10px;">
 
@@ -64,7 +64,7 @@
                            <th style="width:70px;"> DATEFROM </th>
                            <th style="width:8px;"> FREQUENCY </th>
                            <th style="text-align:center; width:300px;"> CLASS </th>
-                           <th style="text-align:center; width:450px;"> COMMENTS </th>
+                           <th style="text-align:center; width:300px;"> COMMENTS </th>
                            <th style="width:90px;"> FLIGHTOPE </th>
                            <th style="width:75px;"> TIMEDEP </th>
                            <th style="width:70px;"> TIMEARRI </th>
@@ -93,14 +93,14 @@
                      </tr>
 
                   </tbody>
-               
+
               </table>
-               
+
 
             </div>
          </div>
       </div>
     </div>
-  
+
 </div>
 <app-footer></app-footer>

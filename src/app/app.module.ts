@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { AngularFireModule} from  '@angular/fire';
+import { AngularFireAuthModule} from '@angular/fire/auth';
+//import { FirebaseFunctions} from '@angular/fire';
+import { environment } from '../environments/environment'
 
 
 
@@ -10,6 +14,7 @@ import { APP_ROUTING } from './app.routes';
 //Servicios
 
 import {DataService} from './servicios/data.service';
+import {AuthService} from './servicios/auth.service';
 
 //componentes
 import { AppComponent } from './app.component';
@@ -41,10 +46,14 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
   imports: [
     BrowserModule,
     APP_ROUTING,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
-   DataService
+   DataService,
+   AuthService
   ],
 
   bootstrap: [AppComponent]
