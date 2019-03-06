@@ -33,7 +33,9 @@
                       </form>
              </div>
          </div>
+        
       </div>
+      <app-loading *ngIf="loading" class="animated fast fideIn" ></app-loading>
       <div class="row">
       <div  class="container col-sm-12  align-items-center animated  fadein fast" style="">
          <div class="container-fluid col d-flex justify-content-center" style="margin:auto;">
@@ -49,8 +51,8 @@
                     </div>
                   </div>
             </div>
-
-            <div *ngIf="mostrar" class="table-responsive" style="padding:2px;height:auto;max-height:800px;width:100%;margin:22px auto;">
+           
+            <div *ngIf="mostrar" class="table-responsive animated fadeIn" style="padding:2px;height:auto;max-height:800px;width:100%;margin:22px auto;">
                <table class="table table-hover"  style="background:white;opacity:0.85;position:relative;" >
                    <thead class="" style="background:rgba(14, 10, 49, 0.945); color:white;z-index:1;padding:0px;font-size:10px;">
 
@@ -78,7 +80,7 @@
                      <tr *ngFor=" let clientes of flightArr;let i = index" style="overflow-y:auto;">
                            <!--<th scope="row"></th>-->
                            <td scope="row" ><strong>{{i+1}}</strong></td>
-                           <td class="clasepointer" ><a (click)="abrirfile(i)" #tdvuelo>{{ clientes.market }} {{ clientes.flightini }}</a></td>
+                           <td class="clasepointer" ><a (click)="abrirfile(clientes)" #tdvuelo>{{ clientes.market }} {{ clientes.flightini }}</a></td>
                            <td>{{ clientes.origen }}</td>
                            <td>{{ clientes.destino }}</td>
                            <td>{{ clientes.codope }}</td>

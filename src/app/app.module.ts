@@ -31,7 +31,7 @@ import { MantenaiceComponent } from './components/mantenaice/mantenaice.componen
 import { FlightComponent } from './components/flight/flight.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { LoadingComponent } from './components/shared/loading/loading.component'
+import { LoadingComponent } from './components/loading/loading.component'
 
 
 @NgModule({

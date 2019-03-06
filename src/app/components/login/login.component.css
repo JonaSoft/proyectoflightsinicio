@@ -4,7 +4,7 @@ html{
   font-family: 'Roboto Condensed', sans-serif;
 }
 .fondo{
-	background-color:#fff;
+	background-color:#848484;
 	height:1150px;
 	margin-top: -200px;
 }
@@ -13,8 +13,16 @@ html{
   margin-left: 2rem;
   font-weight: 600;
 }
+input{
+  color: #fff
+}
 .input-field input[type="search"]:focus {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(252, 244, 244, 0.952);
+ 
+}
+.input-field input[type="search"]:lostfocus {
+  background-color: rgba(252, 244, 244, 0.952);
+ 
 }
 .titulo{
   margin-bottom: 0;
@@ -106,10 +114,10 @@ input[type="radio"] + label{
 }
 .logo-text{
   font-family: 'Orbitron', sans-serif;
-  color: #FFBF00;
+  color: #FFf;
    font-weight: 1000;
   text-align: center;
-  margin-top: 13rem;
+  margin-top: 13rem
 }
 .logo-text h1{
   font-size: 6rem;
@@ -126,15 +134,14 @@ input[type="radio"] + label{
   font-weight: 900
 }
 .login-container{
-  display: flex;
-  justify-content: center;
+ 
+ 
   width: 100%;
   margin:auto
 }
 .login-card{
-  display: flex;
-  justify-content: center;
-  width: 90%;
+ 
+  width: 100%;
   max-width:500px;
   min-width:60px;
   margin:auto

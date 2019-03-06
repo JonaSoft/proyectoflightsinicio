@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <!--Importar la fuente de los íconos de Google-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Importar la hojas de estilos de materialize css
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/customColors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--Importar la hojas de estilos de materialize css-->
+  <link href="../../../assets/materialize/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--<link href="css/customColors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/app.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
   <title>Inicia Sesión</title>
 </head>
 <body class="grey darken-4 fondo">
   <div class="container col-s12" style="padding-top:15%;">
-    <div class="logo-text  light-green-text">
-      <h3 class="logo-text" > Portal Code Share </h3>
-      
-    </div>
-    <div class="container">
-
-      <div class="login-container card login-card" >
+   
+    <div class="container" style ="justify-content: center;">
+      <div class="logo-text " >
+        <i class="fas  fa-4x orange-text text-lighten-3">Portal Code Share</i> 
+        
+      </div>
+      <hr>
+      <div class="container " style="text-align: center;justify-content: center;">
 
         <div class="card-content">
          <!-- action="javascript:;" method="post"-->
@@ -30,20 +31,16 @@
               <input placeholder="User" id="email" type="email" name="email" [(ngModel)]="email" class="validate">
             </div>
             <div class="input-field">
-              <input placeholder="PassWord" id="password" type="password" name="password" [(ngModel)]="password" class="validate">
+              <input placeholder="Password" id="password" type="password" name="password" [(ngModel)]="password" class="validate">
             </div>
             <div *ngIf='alerta' class="forget-container">
-              <p class="forget-psw">WARNING...!!!</p><hr>
+              <!--<p class="forget-psw">WARNING...!!!</p><hr>-->
                <p  class="forget-psw"> Without credentials. Without authorization!!!</p>
             </div>
             <div class="input-field btn-container">
                <button
                   type="submit" name="submit" id="login" class="btn green  ">Sign In
                </button>
-               <!--<button
-               type="submit" name="submit" id="registro" class="btn orange accent-4">Check In
-               </button>-->
-
             </div>
           </form>
 

@@ -22,25 +22,14 @@ export class SearchComponent implements OnInit {
    flight:any ={};
    dia;mes;anio:string;
    acum:number;
-
+   loading:boolean
   constructor( //private _dataService:DataService,
                //private activateRoute: ActivatedRoute,
                private _router: Router,
                private http: HttpClient) {
-            console.log('Constructor de llamado listo');
-            //this.http.get('https://restcountries.eu/rest/v2/lang/es')
-               this.http.get('../assets/datajson.json')
-                     .subscribe((datajson:any) =>{
-                        //console.log(datajson);
-
-                        //console.log(datajson[1])
-                        this.datos=datajson
-                        //console.log(datajson)
-                        console.log(this.datos)
-
-                     })
-
-  }
+                   this.loading=false
+                   console.log("loading falso")
+               }
 
   ngOnInit() {
       //this.datos = this._dataService.getdata();
@@ -131,19 +120,37 @@ export class SearchComponent implements OnInit {
       this.mostrarv= true;
    }
    buscavuelo(termino:string, termino1:string){
+       console.log('Constructor de llamado listo activo loading');
+            this.loading = true;
+            this.mostrar=false;
+            this.aviso=false;
+            //this.http.get('https://restcountries.eu/rest/v2/lang/es')
+               this.http.get('../assets/datajson.json')
+               
+                     .subscribe((datajson:any) =>{
+                        //console.log(datajson);
+
+                        //console.log(datajson[1])
+                        this.datos=datajson
+                        console.log("desactivado loading");
+                        
+                        //console.log(this.datos)
+                       
+                    
+
+
      this.flightArr=[ ] ;
       termino=termino.toUpperCase();
       termino1=termino1.toUpperCase();
 
       console.log(this.datos);
-      //console.log(this.flightArr);
+     
+      
       for ( let mcar of this.datos){
-         //console.log(mcar.market.trim());
-        //console.log(termino)
+      
          if(mcar.market.trim() == termino ){
             if(mcar.codope.trim() == termino1 ){
-              // console.log( mcar.market.trim());
-               //console.log( mcar.codope.trim());
+      
                this.flightArr.push(mcar);
             }else{
                if(termino1 == ""){
@@ -151,27 +158,21 @@ export class SearchComponent implements OnInit {
 
                }
             }
-            //console.log(vuelo.indexOf( termino ))
-            //console.log( mcar.market.trim());
-            //this.flightArr.push(mcar);
-            //console.log(this.flightArr.length);
-            //console.log('es mayor que cero');
+             this.loading = false;
              this.aviso=false;
              this.mostrar=true
+            
 
          }else{
 
                this.mostrar=false;
-               //this.mostrar= !this.mostrar;
                this.aviso = true;
-               //console.log(this.acum);
-               //console.log('es cero')
+              
 
          }
-                   //return this.flightArr;
-            //console.log(vuelo);
+          
       }
-       //console.log(this.flightArr);
+       
       if (this.flightArr.length==0){
               this.mostrar=false;
                this.aviso = true
@@ -179,18 +180,21 @@ export class SearchComponent implements OnInit {
                this.mostrar=true;
                this.aviso=false
       }
-
+      this.loading = false;
       return this.flightArr
-
+    })
 
    }
     ocultar(){
         this.mostrar=false
     }
    abrirfile(i){
-        this.dia = this.datos[i].fechainit.substring(0,2)
-        this.mes = this.datos[i].fechainit.substring(3,5);
-        this.anio = this.datos[i].fechainit.substring(6,10);
+        console.log(i.fechainit)
+        //console.log(this.i])
+        this.dia = i.fechainit.substring(0,2)
+        console.log(this.dia)
+        this.mes = i.fechainit.substring(3,5);
+        this.anio = i.fechainit.substring(6,10);
         switch (this.mes) {
            case "01":
               this.mes="JAN";
@@ -230,11 +234,16 @@ export class SearchComponent implements OnInit {
               break;
            default:
         }
-         this.cadena=(this.datos[i].market+this.datos[i].flightini+this.dia+this.mes+this.anio+`.txt`);
-         console.log(this.datos[i].market + this.datos[i].flightini);
+         this.cadena=(i.market+i.flightini+this.dia+this.mes+this.anio);
+         console.log(i.market + i.flightini);
          console.log(this.cadena)
-         window.open("../assets/2019/"+this.cadena+"","nuevo",
-         "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=900, height=500");
+        
+            window.open("assets/2019/"+this.cadena,"nuevo",
+            "directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=900, height=500")
+         
+         //else{
+         //   this._router.navigate(['notfound'])
+         // }
         //window.open("https://drive.google.com/file/d/1suf2lIzpOsWU-vG5envzbb-lkm8q-DXE/view?usp=sharing",
          //"directories=no, location=no, menubar=no, scrollbars=yes, statusbar=no, tittlebar=no, width=900, height=500");
    }
