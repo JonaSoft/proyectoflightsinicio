@@ -18,14 +18,15 @@ body{
 }
 
 .fondomain{
-  background: url("src/assets/img/avion5.jpg");
+  background-image: url("../../../assets/img/avion5.jpg");
    /*background-color:#F2F2F2;*/
   background-size:cover;
   opacity: 0.75;
   min-height: 980px;
   width: 100%
 
-  }
+}
+
 p{
   font-size:0.9rem;
 
@@ -66,4 +67,3 @@ h5{
 .fadeIn {
   animation-name: fadeIn;
 }
-

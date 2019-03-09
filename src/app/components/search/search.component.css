@@ -2,7 +2,7 @@ body{
   scrollbar-arrow-color:black;
 }
 .fondomain{
-  background: url("src/assets/img/avion5.jpg");
+  background-image:  url("../../../assets/img/avion5.jpg");
   background-size:cover;
   min-height: 980px;
   height: auto;
