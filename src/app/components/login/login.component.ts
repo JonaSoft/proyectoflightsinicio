@@ -27,8 +27,12 @@ export class LoginComponent implements OnInit {
    login(){
       this._auth.loginAuth(this.email,this.password)
       .then((res)=>{
+<<<<<<< HEAD
             //console.log(this.email);
             console.log(res);
+=======
+            console.log(this.email);
+>>>>>>> a97f4aaa8ac8eef55a83df337e2381fe0962fd15
             //console.log(this.password);
             this.router.navigate(['/home']);
       }).catch((err)=>{
@@ -36,7 +40,10 @@ export class LoginComponent implements OnInit {
          this.alerta=true;
       })
    }
+<<<<<<< HEAD
    usuario(){
      console.log('envio usuario')
    }
+=======
+>>>>>>> a97f4aaa8ac8eef55a83df337e2381fe0962fd15
 }

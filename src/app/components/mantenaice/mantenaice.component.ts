@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -6,6 +7,8 @@ import {HttpClient} from '@angular/common/http';
 import {DataService} from '../../servicios/data.service';
 import { Dato } from "../../interface/data.interface"
 
+=======
+>>>>>>> a97f4aaa8ac8eef55a83df337e2381fe0962fd15
 
 @Component({
   selector: 'app-mantenaice',
@@ -13,6 +16,7 @@ import { Dato } from "../../interface/data.interface"
   styleUrls: ['./mantenaice.component.css']
 })
 export class MantenaiceComponent implements OnInit {
+<<<<<<< HEAD
    datos=[];
    flightExport=[];
    //flightnodo:string;
@@ -48,4 +52,12 @@ export class MantenaiceComponent implements OnInit {
                }
             })
    }
+=======
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> a97f4aaa8ac8eef55a83df337e2381fe0962fd15
 }

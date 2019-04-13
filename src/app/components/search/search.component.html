@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<<<<<<< HEAD
 
 <div class="  fondomain container-fluid  animated fast fadeIn">
     <div class="row">
@@ -198,3 +199,112 @@
     </div>
 </div>
 <app-footer></app-footer>
+=======
+<div class="fondomain container-fluid">
+   <!--<div class="container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12 col d-flex justify-content-center">-->
+      <div class="row " style="margin:auto;">
+         <div id="padre" class="col-sm-12 "style="">
+            <div id="hijo" class="container-fluid col d-flex justify-content-center" style="height:auto;">
+                     <form  name="formbuscar" class="formbusqueda  animated  fast fadeIn ">
+
+                        <label for="mcar">Market Airline :  </label>
+                        <input type="text" id="mcar" size="8" maxlength="2" #buscarmcar onKeyUp="this.value=this.value.toUpperCase();"/>
+                        <label for="flight" style="">Flight Market : </label>
+                        <input type="text" id="flight" size="8" maxlength="4" onkeypress="return solonumero(event)" onKeyUp="this.value=this.value.toUpperCase();"/>
+
+                        <label for="ocar">Operator: </label>
+                        <input type="text" id="ocar" size="8" maxlength="2" #buscarocar onKeyUp="this.value=this.value.toUpperCase();"/>
+
+                        <label for="flightnumberoperator">Flight Operator :</label>
+                        <input type="text" id="flightnumberoperator" size="8" maxlength="4" onkeypress="return solonumero(event)" onKeyUp="this.value=this.value.toUpperCase();" />
+                           <label for="origen">Origin : </label>
+                           <input type="text" id="origen" size="4" maxlength="3"  onKeyUp="this.value=this.value.toUpperCase();"/>
+                           <label for="destino"> Destination : </label>
+                           <input type="text" id="destino" size="4" maxlength="3" onKeyUp="this.value=this.value.toUpperCase();" />
+
+                           <button  (click)="buscavuelo(buscarmcar.value,buscarocar.value)"
+                           type="button" class="btn btn-success "style="margin:auto;margin-right:10px; font-size:11px;">VIEW
+                           <!--onclick="getFlight()"-->
+                           </button>
+                           <button (click)="ocultar()"
+                            type="button" class="btn btn-danger "style="margin:auto; font-size:11px;">HIDE
+                           </button>
+
+
+                      </form>
+             </div>
+         </div>
+        
+      </div>
+      <app-loading *ngIf="loading" class="animated fast fideIn" ></app-loading>
+      <div class="row">
+      <div  class="container col-sm-12  align-items-center animated  fadein fast" style="">
+         <div class="container-fluid col d-flex justify-content-center" style="margin:auto;">
+            <div *ngIf="aviso" class="container-fluid d-flex justify-content-center"style="height:25px;">
+                  <div  class="row animated fadeIn fast">
+                    <div class="container-fluid d-flex justify-content-center" style="width:100%;height:250px;">
+
+                    </div>
+                    <div class="container-fluid col d-flex justify-content-center ">
+                      <div class="alert alert-info" role="alert" style="height:100px;opacity:0.85;">
+                        <p> <img src="./assets/img/aviso.jpg" alt="" style="opacity:0.35;width:100px;height:80px;">  There are no results for these search terms</p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+           
+            <div *ngIf="mostrar" class="table-responsive animated fadeIn" style="padding:2px;height:auto;max-height:800px;width:100%;margin:22px auto;">
+               <table class="table table-hover"  style="background:white;opacity:0.85;position:relative;" >
+                   <thead class="" style="background:rgba(14, 10, 49, 0.945); color:white;z-index:1;padding:0px;font-size:10px;">
+
+                        <!--<th> # </th>-->
+                           <th style="width:1px;"> # </th>
+
+                           <th style="width:100px;"> FLIGHT </th>
+                           <th style="width:10px;"> FROM </th>
+                           <th style="width:10px;"> TO </th>
+                           <th style="width:70px;"> OPERATOR </th>
+                           <th style="width:70px;"> DATEFROM </th>
+                           <th style="width:8px;"> FREQUENCY </th>
+                           <th style="text-align:center; width:300px;"> CLASS </th>
+                           <th style="text-align:center; width:300px;"> COMMENTS </th>
+                           <th style="width:90px;"> FLIGHTOPE </th>
+                           <th style="width:75px;"> TIMEDEP </th>
+                           <th style="width:70px;"> TIMEARRI </th>
+                           <th style="width:76px;"> CREATED </th>
+
+
+
+                  </thead>
+
+                  <tbody border=1 style="opacity:1;color:black;font-size:11px;margin-top:0px;margin:auto;" >
+                     <tr *ngFor=" let clientes of flightArr;let i = index" style="overflow-y:auto;">
+                           <!--<th scope="row"></th>-->
+                           <td scope="row" ><strong>{{i+1}}</strong></td>
+                           <td class="clasepointer" ><a (click)="abrirfile(clientes)" #tdvuelo>{{ clientes.market }} {{ clientes.flightini }}</a></td>
+                           <td>{{ clientes.origen }}</td>
+                           <td>{{ clientes.destino }}</td>
+                           <td>{{ clientes.codope }}</td>
+                           <td>{{ clientes.fechainit }}</td>
+                           <td>{{ clientes.frecuencia }}</td>
+                           <td><textarea class="clasetextarea" rows="3" cols="80" style="margin:0px;">{{ clientes.clase }}</textarea></td>
+                           <td><textarea class="clasetextarea" rows="3" cols="80" style="margin:0px;">{{ clientes.comentario }}</textarea></td>
+                           <td style="background:#F3F781;">{{ clientes.flightope }}</td>
+                           <td style="background:#F3F781;">{{ clientes.timedep }}</td>
+                           <td style="background:#F3F781;">{{ clientes.timearr }}</td>
+                           <td>{{ clientes.fechareg }}</td>
+                     </tr>
+
+                  </tbody>
+
+              </table>
+
+
+            </div>
+         </div>
+      </div>
+    </div>
+
+</div>
+<app-footer></app-footer>
+>>>>>>> a97f4aaa8ac8eef55a83df337e2381fe0962fd15
