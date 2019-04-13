@@ -1,0 +1,39 @@
+
+.fondomain{
+  background-image: url("../../../assets/img/avion5.jpg");
+  background-size:cover;
+  height: 980px;
+  width: 100%;
+  opacity: 0.75
+  }
+.animated {
+  -webkit-animation-duration: 6s;
+  animation-duration: 6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.9s;
+  animation-duration: 0.9s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /*width:50px;
+    height:50px*/
+  }
+
+  to {
+    opacity: 1;
+    /*width:60%;
+    height:450px*/
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}

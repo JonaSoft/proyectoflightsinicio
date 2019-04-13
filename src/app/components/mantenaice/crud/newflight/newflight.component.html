@@ -1,0 +1,84 @@
+<div class="row fondomaingeneral">
+   <div class="container  col-md-8  m-5">
+
+   <form (ngSubmit)="newFlight(forma)" #forma="ngForm" class="fondomain">
+     <div class="form-row">
+       <div class="form-group col-md-4">
+         <label>Market Airline</label>
+         <input type="text"class="form-control"  id="market" size="8" maxlength="2"
+                 name="market" ngModel/>
+       </div>
+       <div class="form-group col-md-4">
+         <label>Flight Market</label>
+         <input  type="text" class="form-control" id="flightini" size="8" maxlength="4"
+                name="flightini" ngModel/>
+       </div>
+      <div class="form-group col-md-4">
+        <label>Operator</label>
+        <input type="text" class="form-control" id="codope" size="8" maxlength="4"
+               name="codope" ngModel/>
+      </div>
+     </div>
+      <div class="form-row">
+
+         <div class="form-group col-md-3">
+             <label>Flight Operator</label>
+             <input type="text" class="form-control" maxlength="4" name="flightope" ngModel/>
+         </div>
+
+         <div class="form-group col-md-3">
+            <label>Origen</label>
+            <input type="text" class="form-control" maxlength="3" name="origen" ngModel/>
+         </div>
+         <div class="form-group col-md-3">
+            <label>Destination</label>
+            <input  type="text" class="form-control" maxlength="3"  name="destino" ngModel/>
+         </div>
+         <div class="form-group col-md-3">
+             <label>Frecuency</label>
+             <input  type="text" class="form-control" maxlength="2" name="frecuencia" ngModel/>
+         </div>
+      </div>
+     <div class="form-group">
+       <label>Clase</label>
+       <input  type="text" class="form-control" name="clase" ngModel/>
+     </div>
+      <div class="form-group">
+        <label>Comentario</label>
+        <input type="text" class="form-control"  name="comentario" ngModel/>
+      </div>
+
+       <div class="form-row">
+          <div class="form-group col-md-2">
+              <label>NumOp</label>
+              <input  type="text" class="form-control" maxlength="3" name="numope" ngModel/>
+          </div>
+          <div class="form-group col-md-3">
+              <label>TimeDep</label>
+              <input   type="text" class="form-control" maxlength="4" name="timedep" ngModel/>
+          </div>
+          <div class="form-group col-md-3">
+              <label>TimeArr</label>
+              <input type="text" class="form-control" maxlength="4" name="timearr" ngModel/>
+          </div>
+          <div class="form-group col-md-4">
+              <label>Date</label>
+              <input   type="date" class="form-control"#fechareg name="fechareg" ngModel/>
+          </div>
+       </div>
+
+      <div class="row">
+      <div class="col-md-6">
+         <button
+            type="submit" class="btn btn-primary">Save
+        </button>
+      </div>
+      <div class="col-md-6" style="text-align: right;">
+         <button (click)="volver()"
+                  type="button" class="btn btn-danger">Back
+         </button>
+      </div>
+      </div>
+   </form>
+   </div>
+</div>

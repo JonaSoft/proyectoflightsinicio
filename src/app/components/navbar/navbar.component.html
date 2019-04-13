@@ -1,0 +1,34 @@
+<div class="container-fluid fondonavbar">
+
+
+   <div class="row">
+      <div class="col-md-6" style="padding:5px;">
+         <img src="./assets/img/favicon.ico" alt="">  <span class="margenes"> Assistance & Information Support</span>
+      </div>
+      <div class="col-md-6"  style="padding:5px;">
+           <ul class="nav justify-content-end estilomenu">
+           <li class="nav-item estilomenu" routerLinkActive="active">
+             <a id='home' class="nav-item nav-link active ml-2 r estilomenu" [routerLink] = "['/home']">Home</a>
+           </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a id='search' class="nav-item nav-link active ml-2 r estilomenu" [routerLink] = "['/search']">Search</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+            <a id='mantenaice' class="nav-item nav-link active ml-2 r estilomenu" [routerLink] = "['/mantenaice']">Mantenaice</a>
+           </li>
+
+           <li class="nav-item">
+            <button  (click)="logout()"
+              class="btn btn-danger my-2 my-sm-0 fondologout" type="text">Logout
+           </button>
+           </li>
+         </ul>
+      </div>
+   </div>
+</div>
+ <!--<a id='home' class="nav-item nav-link active ml-2 r fondologout" [routerLink] = "['/home']">Home</a>
+ <a id='mantenaice' class="nav-item nav-link active ml-2 r fondonavbar" [routerLink] = "['/mantenaice']">Mantenaice</a>
+ <a id='search' class="nav-item nav-link active ml-2 r fondonavbar" [routerLink] = "['/search']">Search</a>
+ <button  (click)="logout()"
+   class="btn btn-danger my-2 my-sm-0 fondologout" type="text">Logout
+</button>-->

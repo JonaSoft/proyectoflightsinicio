@@ -1,0 +1,16 @@
+.fondomaingeneral{
+  background-image: url("../../../../../assets/img/avion5.jpg");
+  background-size:cover;
+  height: 980px;
+  width: 100%;
+  opacity: 0.75;
+  }
+.fondomain{
+  background-image: url("../../../../../assets/img/winplomo.jpg");
+  background-size:cover;
+  background-position: center center;
+  height: auto;
+  width: 100%;
+  opacity: 0.75;
+  padding:25px;
+  }

@@ -1,0 +1,200 @@
+<app-navbar></app-navbar>
+
+<div class="  fondomain container-fluid  animated fast fadeIn">
+    <div class="row">
+        <!--<div class="container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12 col d-flex justify-content-center">-->
+
+
+        <div class="col-lg-2 col-md-3" style="margin:0px;height:auto;padding-left:0px;">
+
+            <div id="hijo" class="col-lg-12 col-md-12" style="height:auto;">
+                <form (ngSubmit)="buscavuelo(forma)" #forma="ngForm" id="formbuscar" name="formbuscar" class="formbusqueda  animated  fast fadeIn">
+                    <div class="col-md-12 text-center" style="margin:auto;">
+                        <h5>Flights Report</h5>
+                    </div>
+                    <div class="container-fluid intoform" style="">
+
+                        <div class=" container">
+
+                            <label for="mcar">Market :  </label>
+                            <input type="text" id="mcar" size="5" maxlength="2" #market name="market" ngModel/><br>
+
+
+                            <label for="flight"> FlightM : </label>
+                            <input type="text" id="flight" size="5" maxlength="4" #buscarflight name="flightini" ngModel/><br><br>
+                        </div>
+
+                        <div class="container text-right">
+                            <label for="ocar">Operat : </label>
+                            <input type="text" id="ocar" size="5" maxlength="2" #buscarocar name="codope" ngModel/><br>
+
+
+                            <label for="flightnumberoperator">FlightO :</label>
+                            <input type="text" id="flightnumberoperator" size="5" maxlength="4" #flightope name="flightope" ngModel/><br><br>
+                        </div>
+
+                        <div class="container">
+                            <label for="origen">Origin : </label>
+                            <input type="text" id="origen" size="5" maxlength="4" name="origen" ngModel/><br>
+
+                            <label for="destino">Destin : </label>
+                            <input type="text" id="destino" size="5" maxlength="4" name="destino" ngModel/><br>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <!--onKeyUp="this.value=this.value.toUpperCase();"-->
+                        <div *ngIf="view" class="container">
+                            <button type="submit" class="btn btn-success btn-block " style="margin:2px;font-size:12px;">VIEW
+                             <!--onclick="getFlight()"-->
+                             </button>
+                        </div>
+                        <div *ngIf="hide" class="container">
+                            <button (click)="closeTable()" type="button" class="btn btn-warning btn-block " style="margin:2px;font-size:12px;">HIDE
+                             <!--onclick="getFlight()"-->
+                             </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <br>
+            <div id="chat" class="col-lg-12 col-md-12">
+
+                <div class="row  contenedorchat">
+                    <div class="col-md-12 text-center" style="margin:auto;">
+                        <h5>Users Online</h5>
+                    </div>
+                    <div class="container  chat-window" style="background:white; color: black;border-radius:5px 5px 5px 5px;padding:2px;">
+                        <div class="main-container app-mensajes" id="app-mensajes">
+                            <div *ngFor="let chat of _cs.chats">
+                                <div [ngClass]="{'text-right ':_cs.usuario.uid != chat.uid }">
+                                    <span class="badge" style="font-size:10px;font-family:tahoma;" [ngClass]="{'badge-primary':_cs.usuario.uid == chat.uid,
+                                                  'badge-success':_cs.usuario.uid != chat.uid}">
+                                       {{chat.nombre | slice:0:26 }}
+                                     </span>
+                                </div>
+
+                                <!-- <div [ngClass]="{'text-right ':_cs.usuario.uid != chat.uid }">{{chat.nombre | slice:0:26 }}</div>-->
+                                <span style="font-size:8px;color:gray">{{chat.fecha | date:'medium'}} dice:</span><br>
+                                <span> {{chat.mensaje}} </span>
+                            </div>
+                            <!-- <ul>
+                             <li class="text" *ngFor="let item of items | async">
+                               {{item.mensaje}}
+                             </li>
+                           </ul>
+                           <div class="text-right">
+                              <span class="badge badge-success">User</span>
+
+                           </div>-->
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class=" container-fluid text-center" style="margin-top:10px;">
+                        <input id="btn-input" type="text" class="form-control input-sm" name="mensaje" [(ngModel)]="mensaje" (KeyUp.enter)="enviarmensaje()" placeholder="Send message...." style="height:30px;border-radius:5px,5px,5px,5px;" />
+                        <div class="container text-right">
+                            <span class="input-group-btn">
+                              <!--<button (click)="enviarmensaje()" type="submit"class="btn btn-primary btn-sm m-2" id="btn-chat">
+                                 Send
+                              </button>-->
+                           </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-10 col-md-9 container-fluid">
+            <div class="row" style="padding:5px;">
+                <div class="container-fluid col-lg-12">
+
+                    <app-loading *ngIf="loading" class="animated fast fideIn "></app-loading>
+                    <div *ngIf="aviso" class="container-fluid d-flex justify-content-center" style="height:25px;">
+                        <div class="row animated fadeIn fast">
+                            <div class="container-fluid d-flex justify-content-center" style="width:100%;height:250px;">
+
+                            </div>
+                            <div class="container-fluid col d-flex justify-content-center ">
+                                <div class="alert alert-info" role="alert" style="height:100px;opacity:0.85;">
+                                    <p> <img src="./assets/img/aviso.jpg" alt="" style="opacity:0.35;width:100px;height:80px;"> There are no results for these search terms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container-fluid col-sm-12  align-items-center animated  fadein fast m5">
+
+
+
+
+
+                <div *ngIf="mostrar" class="container-fluid col-lg-12 col-sm-12 animated fadeIn" style="padding:0px;height:auto;max-height:550px;width:100%;margin:0px; margin-top:3%;">
+                    <br>
+                    <table class="table table-hover table-responsive" style="background:white;opacity:0.85;width:95%;border:1px solid black;margin:0px;padding:0px;overflow-y: scroll;height:auto;max-height:500px;">
+                        <thead class="" style="background-color:rgba(14, 10, 49, 0.945); color:white;z-index:1;margin:0px;font-size:10px; border:1px solid black;">
+                            <th> # </th>
+                            <th> FLIGHT </th>
+                            <th> ORIG </th>
+                            <th> DEST </th>
+                            <th> OPT </th>
+                            <th> DATE </th>
+                            <th> FQT </th>
+                            <th>CLASS</th>
+                            <th>COMMENTS</th>
+
+                            <th> DEP </th>
+                            <th> ARR </th>
+                            <th> F.OPT </th>
+                            <th> CREATED </th>
+                            <!--<th style="width:10px;">ACTION</th>-->
+                        </thead>
+
+                        <tbody style="opacity:1;color:black;font-size:10px;max-height:450px; overflow-y: scroll;">
+                            <tr *ngFor=" let clientes of flightFinal ;let i = index">
+                                <!--<th scope="row"></th>-->
+                                <td scope="row"><strong>{{i+1}}</strong></td>
+                                <td class="clasepointer" style=""><a target="_blank" (click)="seeFlight(clientes,'','width=850,height=700')" #tdvuelo>{{ clientes.market }} {{ clientes.flightini }}</a></td>
+                                <td style="">{{ clientes.origen }}</td>
+                                <td style="">{{ clientes.destino }}</td>
+                                <td style="">{{ clientes.codope }}</td>
+                                <td style="">{{ clientes.fechainit }}</td>
+                                <td style="">{{ clientes.frecuencia }}</td>
+                                <td class="clasetextarea">{{ clientes.clase | slice:1:100 }}</td>
+                                <td class="clasetextarea">{{ clientes.comentario | slice:1:100 }}</td>
+
+                                <td style="background:#F3F781;">{{ clientes.timedep }}</td>
+                                <td style="background:#F3F781;">{{ clientes.timearr }}</td>
+                                <td style="">{{ clientes.flightope }}</td>
+                                <td style="">{{ clientes.fechareg }}</td>
+                                <!--<td>
+                                            <div class="row">
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-primary btnaction"><i class="fas fa-marker fa-xs"></i></button>
+                                                    <button type="submit" class="btn btn-danger btnaction"><i class="fas fa-trash fa-xs"></i></button>
+                                                </div>
+                                            </div>
+
+                                        </td>-->
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<app-footer></app-footer>
