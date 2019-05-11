@@ -7,7 +7,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule} from  '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 //Rutas
 import { APP_ROUTING } from './app.routes';
@@ -16,7 +17,8 @@ import { APP_ROUTING } from './app.routes';
 
 import {DataService} from './servicios/data.service';
 import {AuthService} from './servicios/auth.service';
-import {ChatsService} from './servicios/chats.service'
+import {ChatsService} from './servicios/chats.service';
+import {CargaimagenService} from './servicios/cargaimagen.service'
 
 //Guards
 
@@ -36,6 +38,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { NewflightComponent } from './components/mantenaice/crud/newflight/newflight.component';
 import { KeysPipe } from './pipes/keys.pipe';
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
 
 
 @NgModule({
@@ -51,16 +54,19 @@ import { KeysPipe } from './pipes/keys.pipe';
     NotfoundComponent,
     LoadingComponent,
     NewflightComponent,
-    KeysPipe
+    KeysPipe,
+    NgDropFilesDirective
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
     HttpClientModule,
     FormsModule,
+    ScrollingModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    DragDropModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
@@ -68,8 +74,8 @@ import { KeysPipe } from './pipes/keys.pipe';
    AuthService,
    AngularFireDatabase,
    AuthGuard,
-   ChatsService
-
+   ChatsService,
+   CargaimagenService
   ],
 
   bootstrap: [AppComponent]

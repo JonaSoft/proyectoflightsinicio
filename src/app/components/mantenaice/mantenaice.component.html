@@ -1,37 +1,74 @@
 <app-navbar></app-navbar>
 <div class="fondomain  animated fast fadeIn">
+   <div class="row col-md-12">
 
-  <div class="">
-     <h1 class="display-3">Mantenaice</h1>
-     <p class="lead">This is the access module to modify the database, authorization is required ...</p>
-      <div class="container" style= "width:auto;height:auto;">
-      <!--"background-image:url('../../assets/img/fondomail.jpg'); background-size:contain;-->
-         <form (ngSubmit)="newflight()"class="form-inline">
-           <div class="form-group">
-             <label class="sr-only">Email</label>
-             <p class="form-control-static">user@example.com</p>
-           </div>
-           <div class="form-group mx-sm-3">
-             <label for="inputPassword2" class="sr-only">Password</label>
-             <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-           </div>
-           <button type="submit" class="btn btn-primary">Confirm</button>
-         </form>
-      </div>
-      <div class="row">
-         <div>
-            <button (click)="exportar()" type="button" name="button">Exportar</button>
-         </div>
+      <div class="col-md-4">
+        <div class="container"style="height:600px;">
+            <h3>Support Database</h3>
+            <p class="lead">This is the access module to modify the database, authorization is required ...</p>
+            <div class="container" style= "width:auto;height:auto;">
+             <!--"background-image:url('../../assets/img/fondomail.jpg'); background-size:contain;-->
+               <div class="row">
+                  <div class="col-md-6">
+                        <button (click)="newflight()" type="button" class="btn btn-primary btn-block">CRUD Records</button>
+                  </div>
 
-      </div>
-    <!--<img class="card" src="./assets/img/mantoavion.jpg" width="600" alt="Card image cap">
-     <p [ngStyle]="('font-size':'50px')"> Flight Code Share</p>-->
-      <div class="row">
-         <div class="">
-            <button (click)="deleteData()" type="button" name="button">eliminar</button>
+                  <div class="col-md-6">
+                        <button (click)="exportar()" type="button" class="btn btn-success btn-block"name="button">Upload Flights</button>
+                  </div>
+
+               </div>
+            </div>
          </div>
       </div>
-  </div>
 
+      <div class="col-md-4">
+         <div class="container"style="height:600px;">
+            <div class="row col-md-12">
+               <div class="container">
+                  <h3 class="">Select Images to save</h3>
+                  <div class="col-md-12">
+
+                     <div appNgDropFiles (mouseSobre)="estaSobreElemento=$event" [ngClass]="{ 'file-over':estaSobreElemento }" class="container-fluid well drop-zone">
+                        <h6 class="text-primaty text-left">Please, drag and drop the files here...</h6>
+
+                              <img src="../../../assets/img/drop-images.png" width="150">
+
+
+                     </div>
+                  </div>
+                  <div class="col-md-12">
+                        <br>
+                        <button (click)= "cargarImagenes()" [disabled]="archivos.length===0" class="btn btn-success">Load</button>
+                        <button class="btn btn-danger">Clean</button>
+                        <br>
+                        <table class="table">
+                           <thead class="thead-dark" style="font-family:cursive; font-size:14px;">
+                              <th>FileName</th>
+                              <th>Size</th>
+                              <th>Progress</th>
+                           </thead>
+                           <br>
+                           <tbody style="background:white;height:auto;">
+                              <td>XYZ</td>
+                              <td>12Mb</td>
+                              <td class="text-center" style="background:white;">
+                                 <div class="progress text-center">
+                                   <div class="progress-bar" role="progressbar" style="width: 25%"></div>
+                                 </div>
+                              </td>
+                           </tbody>
+                        </table>
+
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+   </div>
 </div>
 <app-footer ></app-footer>

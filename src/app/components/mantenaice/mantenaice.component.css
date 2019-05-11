@@ -6,6 +6,31 @@
   width: 100%;
   opacity: 0.75
   }
+   .main-container{
+     margin-top: 40px;
+   }
+
+   /* Drop Zone */
+   .drop-zone {
+   	border: dotted 3px lightgray;
+   	opacity: 0.95;
+   	background-color:none;
+   	text-align: center
+   }
+
+   .file-over {
+   	border: dotted 3px dodgerblue;
+      background-color: white
+   }
+
+   .table {
+   	margin-top: 30px;
+   }
+
+   .text-green {
+   	color: green
+   }
+/*Animaciones*/
 .animated {
   -webkit-animation-duration: 6s;
   animation-duration: 6s;

@@ -32,7 +32,6 @@ export class DataService {
        //console.log(nodo);
        return this.http.post( nodo, body, { headers } )
        .map(res=>{
-         console.log(res);
          return res
        })
 
@@ -99,7 +98,7 @@ export class DataService {
              return this.http.get(this.flightUrl+'/'+_flightini+'.json')
              .map( res=>res);
    }
-   getMarket(_flightini:string){
+   getMarket(_market:string){
       console.log('market');
       return this.http.get(this.flightsUrl)
       .map( res=>res);
@@ -208,7 +207,7 @@ export class DataService {
             break;
          default:
       }
-      this.cadena=`../../assets/2019/${clientes.market}${clientes.flightini}${this.dia}${this.mes}${this.anio}.txt`;
+      this.cadena=`../../../assets/2019/${clientes.market}${clientes.flightini}${this.dia}${this.mes}${this.anio}.txt`;
       //this.cadena=`c:/users/public/vfdata/imagen/2019/${clientes.market}${clientes.flightini}${this.dia}${this.mes}${this.anio}.txt`;
       //let nodo =  `${ this.flightUrl }/${ valor }.json`
       return(this.cadena)

@@ -15,6 +15,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 //import { Observable } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
@@ -23,12 +24,13 @@ import 'rxjs/add/operator/map';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit{
    public items: Observable<any[]>;
    datos: Dato[];
    flightArr: Dato[]=[];
    flightPrevio: Dato[]=[];
    flightFinal: Dato[]=[];
+   //personas = Array(500).fill(0);
    view=true;
    hide=false;
    mostrar=false;
@@ -78,6 +80,9 @@ export class SearchComponent {
 
 
                }
+   ngOnInit(){
+      //console.log(this.personas)
+   }
 
     enviarform(){
       console.log(this.forma);
@@ -121,6 +126,7 @@ export class SearchComponent {
             }else{
               //console.log(this.flightFinal.length);
               //console.log('flightFinal lleno');
+              this.flightFinal.reverse();
               this.aviso = false;
               this.mostrar = true;
 
@@ -132,10 +138,11 @@ export class SearchComponent {
          this._dataService.getMarketOperador(this._market,this._codope)
             .subscribe(data=>{
                 for(let z in data){
-                  //console.log(data[z]);
+                  console.log(data[z]);
                   for(let x in data[z]){
                     if(data[z][x].market==this._market && data[z][x].codope==this._codope){
                         this.flightFinal.push(data[z][x])
+
                     }
                   }
                }
@@ -151,12 +158,14 @@ export class SearchComponent {
                    this.mostrar=false;
                    //data=[]
                  }else{
-                   //console.log(this.flightFinal.length);
+                   //this.flightFinal.reverse();
+                   this.flightFinal.reverse();
                    //console.log('flightFinal lleno');
                    this.aviso = false;
                    this.mostrar = true;
 
                  }
+                //console.log(this.flightFinal.reverse())
             })
          }
       //SOLO MARKETERO
@@ -188,6 +197,8 @@ export class SearchComponent {
              }else{
                 //console.log(this.flightFinal.length);
                 //console.log('flightFinal lleno');
+                //console.log(this.flightFinal.sort());
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -195,13 +206,6 @@ export class SearchComponent {
          })
       }
 
-      //OPERADOR Y FLIGHTOPERADOR
-      //console.log(this._codope);
-      //console.log(this._flightope);
-      //console.log(this._flightini);
-      //console.log(this._market.length);
-      //console.log(this._codope.length);
-      //console.log(this._flightope)
       if(this._flightini<1 &&this._market.length<1 && this._codope.length>0 && this._flightope>0 && this._origen.length<1 && this._destino.length<1){
          console.log(this._flightope)
          this._dataService.getOperadorFlightOpe(this._codope,this._flightope)
@@ -227,6 +231,7 @@ export class SearchComponent {
             }else{
               //console.log(this.flightFinal.length);
               //console.log('flightFinal lleno');
+              this.flightFinal.reverse();
               this.aviso = false;
               this.mostrar = true;
 
@@ -263,6 +268,7 @@ export class SearchComponent {
              }else{
                 //console.log(this.flightFinal.length);
                 //console.log('flightFinal lleno');
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -298,6 +304,7 @@ export class SearchComponent {
              }else{
                 //console.log(this.flightFinal.length);
                 //console.log('flightFinal lleno');
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -333,6 +340,7 @@ export class SearchComponent {
              }else{
                 //console.log(this.flightFinal.length);
                 //console.log('flightFinal lleno');
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -366,6 +374,7 @@ export class SearchComponent {
             }else{
                 //console.log(this.flightFinal.length);
                 //onsole.log('flightFinal lleno');
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -379,6 +388,7 @@ export class SearchComponent {
             }else{
                console.log(this.flightFinal.length);
                console.log('flightFinal lleno');
+               this.flightArr.reverse();
                this.aviso = false;
                this.mostrar = true;
             }
@@ -414,6 +424,7 @@ export class SearchComponent {
             }else{
                 console.log(this.flightFinal.length);
                 console.log('flightFinal lleno');
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -440,7 +451,7 @@ export class SearchComponent {
 
                      }
                   }
-                  console.log(this.flightFinal)
+                  //console.log(this.flightFinal)
                }
             this.loading = false;
             //this.mostrar = true;
@@ -456,6 +467,7 @@ export class SearchComponent {
             }else{
                 console.log(this.flightFinal.length);
                 console.log('flightFinal lleno');
+                this.flightFinal.reverse();
                 this.aviso = false;
                 this.mostrar = true;
 
@@ -468,7 +480,8 @@ export class SearchComponent {
          this._dataService.getFlight(this._flightini)
          .subscribe(data =>{
             for(let z in data){
-               this.flightFinal.push(data[z])
+               this.flightFinal.push(data[z]);
+               //this.flightFinal.sort()
             }
             this.loading = false;
             this.view=false;
@@ -482,6 +495,8 @@ export class SearchComponent {
             }else{
                console.log(this.flightFinal.length);
                console.log('flightFinal lleno');
+               this.flightFinal.sort();
+               //this.flightFinal.orderByString('origen');
                this.aviso = false;
                this.mostrar = true;
             }
