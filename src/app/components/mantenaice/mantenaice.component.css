@@ -4,7 +4,6 @@
   background-size:cover;
   height: 980px;
   width: 100%;
-<<<<<<< HEAD
   opacity: 0.75
   }
 .animated {
@@ -38,7 +37,3 @@
 .fadeIn {
   animation-name: fadeIn;
 }
-=======
-  opacity: 0.75;
-  }
->>>>>>> a97f4aaa8ac8eef55a83df337e2381fe0962fd15

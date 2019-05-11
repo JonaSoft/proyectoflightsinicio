@@ -1,7 +1,7 @@
 
  export interface Dato{
     market:string;
-    flightini:string;
+    flightini:number;
     flightend?:string;
     origen?:string;
     destino?:string;
@@ -12,7 +12,7 @@
     frecuencia?:string;
     clase?:string;
     comentario?:string;
-    flightope?:string;
+    flightope?:number;
     timedep?:string;
     timearr?:string;
     fechareg?:string;
